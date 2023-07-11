@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-
+from django.shortcuts import redirect
 from core.models import Url
 from core.forms import UrlForm
 
@@ -22,3 +22,9 @@ class HomeView(View):
         return render(
             request, self.template_name, {"short_url": obj.get_full_short_url()}
         )
+
+class RedirectView(View):
+    def get(self, request, *args, **kwargs):
+        hashed_url = self.kwargs.get('hashed_url')
+        url = Url.objects.get(hashed_url=hashed_url)
+        return redirect(url.url)

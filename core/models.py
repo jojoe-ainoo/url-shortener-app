@@ -1,5 +1,5 @@
 import secrets
-
+import os
 from django.db import models
 
 
@@ -20,4 +20,5 @@ class Url(models.Model):
         return token
 
     def get_full_short_url(self):
-        return f"http://localhost:8000/{self.hashed_url}"
+        base_url = os.getenv("URL_SHORTENER_HOST", "http://localhost:8000")
+        return f"{base_url}/{self.hashed_url}"
