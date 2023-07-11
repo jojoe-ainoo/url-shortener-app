@@ -78,4 +78,4 @@ jobs:
             --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=URL_SHORTENER_HOST,Value=${{ secrets.URL_SHORTENER_HOST }}
 
       - name: Print nice message on success finish
-        run: echo "CD part finished successfully"
+        run: echo "CD finished successfully"
