@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="flex-1 mt-32">
+  <div
+    class="flex flex-col flex-wrap container px-5 py-10 space-y-4 mx-auto text-gray-700 bg-gray-50 rounded-xl shadow-lg"
+  >
+    <form method="post" class="flex flex-col justify-between">
+      {% csrf_token %} {{ form.non_field_errors }}
+      <div class="flex flex-col w-full space-y-2">
+        <div class="w-full">
+          <input
+            id="URL"
+            required
+            placeholder="URL"
+            value="{{ form.url.value }}"
+            type="text"
+            id="url"
+            name="url"
+            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+          <span class="text-xs text-red-400">{{ form.url.errors }}</span>
+        </div>
+      </div>
+      <button
+        id="update"
+        onclick="setLoading()"
+        type="submit"
+        class="transform hover:scale-110 transition duration-150 ease-in-out shadow-md flex font-bold mx-auto mt-8 border py-2 px-8 focus:outline-none hover:bg-gray-100 rounded text-xs"
+      >
+        Update URL
+      </button>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+  function setLoading() {
+    document.getElementById("update").innerHTML = "Updating...";
+  }
+</script>
+{% endblock content %}
