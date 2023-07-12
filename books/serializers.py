@@ -27,12 +27,15 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
         fields = ["id", "name", "country"]
 
-
+#  Book Serializer using new queryset method to modify meta calss
 class BookSerializer(serializers.ModelSerializer):
-    author = AuthorSerializer()
-    category = CategorySerializer()
-    tags = TagSerializer(many=True)
+    author_name = serializers.CharField(source="author__name")
+    category_name = serializers.CharField(source="category__name")
+    tags_names = serializers.ListField(source="tags__name")
 
     class Meta:
+        # Use derived fileds [author_name, category_name, tag_names]
+        # makes it faster to use derived  fields rather than serializing the entire models (unecessary serialization) 
+        # could change based on project requirements
         model = Book
-        fields = ["id", "title", "author", "category", "tags"]
+        fields = ["id", "title", "author_name", "category_name", "tags_names"]
