@@ -76,7 +76,6 @@ jobs:
             --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_HOST,Value=${{ secrets.DB_HOST }} \
             --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_PORT,Value=${{ secrets.DB_PORT }} \
             --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=URL_SHORTENER_HOST,Value=${{ secrets.URL_SHORTENER_HOST }}
-        run: echo "Deployed to ELB"
 
       - name: Print nice message on success finish
         run: echo "CD finished successfully"
