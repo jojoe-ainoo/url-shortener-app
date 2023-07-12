@@ -70,12 +70,12 @@ jobs:
           aws elasticbeanstalk update-environment \
             --environment-name ${{ env.EB_ENVIRONMENT_NAME }} \
             --version-label "${{ github.sha }}-retry" \
-            --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_NAME,Value=${{ secrets.DB_NAME }} \
-            --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_USER,Value=${{ secrets.DB_USER }} \
-            --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_PASSWORD,Value=${{ secrets.DB_PASSWORD }} \
-            --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_HOST,Value=${{ secrets.DB_HOST }} \
-            --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_PORT,Value=${{ secrets.DB_PORT }} \
-            --option-settings Namespace=aws:elasticbeanstalk:application:environment,OptionName=URL_SHORTENER_HOST,Value=${{ secrets.URL_SHORTENER_HOST }}
+            --option-settings "Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_NAME,Value=${{ secrets.DB_NAME }}" \
+            --option-settings "Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_USER,Value=${{ secrets.DB_USER }}" \
+            --option-settings "Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_PASSWORD,Value=${{ secrets.DB_PASSWORD }}" \
+            --option-settings "Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_HOST,Value=${{ secrets.DB_HOST }}" \
+            --option-settings "Namespace=aws:elasticbeanstalk:application:environment,OptionName=DB_PORT,Value=${{ secrets.DB_PORT }}" \
+            --option-settings "Namespace=aws:elasticbeanstalk:application:environment,OptionName=URL_SHORTENER_HOST,Value=${{ secrets.URL_SHORTENER_HOST }}"
 
       - name: Print nice message on success finish
         run: echo "CD finished successfully"
