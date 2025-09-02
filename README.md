@@ -13,3 +13,5 @@ http://url-shortener-dev-env.eba-uvv8kgrz.us-east-2.elasticbeanstalk.com/
 The details of the implementation with documentation would be updated later 
 
 <!-- Security scan triggered at 2025-09-02 01:34:03 -->
+
+<!-- Security scan triggered at 2025-09-02 15:12:37 -->
